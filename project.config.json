@@ -53,6 +53,14 @@
       {
         "value": ".gitignore",
         "type": "file"
+      },
+      {
+        "value": "docs",
+        "type": "folder"
+      },
+      {
+        "value": "README.md",
+        "type": "file"
       }
     ],
     "include": []
