@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "人情账簿",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 120,
+  "usingComponents": {
+    "record-card": "/components/record-card/record-card"
+  }
+}

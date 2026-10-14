@@ -1,0 +1,124 @@
+<view class="page">
+  <!-- 人情概览 -->
+  <view class="stat-card">
+    <view class="stat-main">
+      <view class="stat-item">
+        <view class="stat-label">待我还</view>
+        <view class="stat-value stat-red">¥{{stats.oweText}}</view>
+        <view class="stat-sub">{{stats.oweCount}} 笔收礼未还</view>
+      </view>
+      <view class="stat-split"></view>
+      <view class="stat-item">
+        <view class="stat-label">待对方回</view>
+        <view class="stat-value stat-green">¥{{stats.backText}}</view>
+        <view class="stat-sub">{{stats.backCount}} 笔送礼未回</view>
+      </view>
+    </view>
+    <view class="stat-foot">
+      <text>累计收礼 ¥{{stats.inText}}</text>
+      <text class="stat-dot">·</text>
+      <text>累计送礼 ¥{{stats.outText}}</text>
+    </view>
+  </view>
+
+  <!-- 待还提醒 -->
+  <view wx:if="{{reminder.overdueCount}}" class="remind-card">
+    <view class="remind-head">
+      <view class="remind-title" wx:if="{{reminder.enabled}}">有 {{reminder.overdueCount}} 笔人情超过 {{reminder.threshold}} 天未回</view>
+      <view class="remind-title" wx:else>有 {{reminder.overdueCount}} 笔人情还没回</view>
+      <view class="remind-sub">{{reminder.maxDays ? '最久 ' + reminder.maxDays + ' 天 · ' : ''}}合计 ¥{{reminder.overdueAmountText}}</view>
+    </view>
+
+    <view class="remind-body">
+      <view
+        wx:for="{{remindItems}}"
+        wx:key="id"
+        class="remind-row {{index > 0 ? 'remind-row-line' : ''}}"
+        data-id="{{item.id}}"
+        bindtap="onRemindItemTap"
+      >
+        <view class="remind-row-main">
+          <text class="remind-name">{{item.name}}</text>
+          <text class="remind-meta">{{item.eventType ? item.eventType + ' · ' : ''}}{{item.directionText}} ¥{{item.amountText}}</text>
+        </view>
+        <view class="remind-days">{{item.daysText}}</view>
+      </view>
+    </view>
+
+    <view
+      wx:if="{{reminder.overdueCount > remindItems.length || remindExpanded}}"
+      class="remind-more"
+      bindtap="onToggleRemind"
+    >{{remindExpanded ? '收起' : '展开全部 ' + reminder.overdueCount + ' 笔'}}</view>
+  </view>
+
+  <!-- 筛选 -->
+  <view class="filters">
+    <view class="chip-group">
+      <view
+        wx:for="{{filters}}"
+        wx:key="key"
+        class="chip {{filter === item.key ? 'chip-on' : ''}}"
+        data-key="{{item.key}}"
+        bindtap="onFilterTap"
+      >{{item.label}}</view>
+    </view>
+    <view class="chip-group chip-group-right">
+      <view
+        class="chip {{direction === 'all' ? 'chip-on' : ''}}"
+        data-key="all"
+        bindtap="onDirectionTap"
+      >收送</view>
+      <view
+        class="chip {{direction === 'in' ? 'chip-on' : ''}}"
+        data-key="in"
+        bindtap="onDirectionTap"
+      >只看收</view>
+      <view
+        class="chip {{direction === 'out' ? 'chip-on' : ''}}"
+        data-key="out"
+        bindtap="onDirectionTap"
+      >只看送</view>
+    </view>
+  </view>
+
+  <!-- 加载失败 -->
+  <view wx:if="{{errorMsg}}" class="error-card">
+    <view class="error-text">{{errorMsg}}</view>
+    <view class="error-btn" bindtap="load">重新加载</view>
+  </view>
+
+  <!-- 加载中 -->
+  <view wx:elif="{{loading}}" class="empty">
+    <view>正在加载账本…</view>
+  </view>
+
+  <!-- 列表 -->
+  <block wx:elif="{{list.length}}">
+    <record-card
+      wx:for="{{list}}"
+      wx:key="id"
+      item="{{item}}"
+      bind:itemtap="onItemTap"
+      bind:settle="onSettle"
+    />
+    <!-- 分页状态：不写出来的话，用户会以为已经到底了 -->
+    <view class="list-foot">
+      <text wx:if="{{loadingMore}}">正在加载…</text>
+      <text wx:elif="{{hasMore}}">上滑加载更早的记录</text>
+      <text wx:else>没有更多了</text>
+    </view>
+  </block>
+
+  <!-- 空状态 -->
+  <view wx:else class="empty">
+    <view class="empty-title">{{total ? '这个筛选下还没有记录' : '还没有记过人情'}}</view>
+    <view class="tiny">{{total ? '换个筛选看看' : '点右下角「+」记下第一笔，整页名单用「≡」批量录入'}}</view>
+  </view>
+
+  <view class="fab-mini" bindtap="goBulk">
+    <view class="fab-mini-icon">≡</view>
+    <view class="fab-mini-label">批量</view>
+  </view>
+  <view class="fab" bindtap="goAdd">+</view>
+</view>

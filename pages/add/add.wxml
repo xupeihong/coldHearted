@@ -1,0 +1,122 @@
+<view class="page">
+  <!-- 收 / 送 -->
+  <view class="seg">
+    <view
+      class="seg-item {{direction === 'in' ? 'seg-on' : ''}}"
+      data-key="in"
+      bindtap="onDirectionTap"
+    >
+      <view class="seg-main">收礼</view>
+      <view class="seg-sub">别人给我</view>
+    </view>
+    <view
+      class="seg-item seg-item-out {{direction === 'out' ? 'seg-on seg-on-out' : ''}}"
+      data-key="out"
+      bindtap="onDirectionTap"
+    >
+      <view class="seg-main">送礼</view>
+      <view class="seg-sub">我给出去</view>
+    </view>
+  </view>
+
+  <!-- 凭证照片 -->
+  <view class="card">
+    <view class="section-title">
+      <text>凭证照片</text>
+      <text wx:if="{{photoPath}}" class="redo" bindtap="runRecognize">重新识别</text>
+    </view>
+
+    <block wx:if="{{photoSrc}}">
+      <image class="photo" src="{{photoSrc}}" mode="aspectFill" bindtap="onPreviewPhoto" />
+      <view class="photo-actions">
+        <view class="photo-btn" bindtap="onChoosePhoto">换一张</view>
+        <view class="photo-btn" bindtap="onRemovePhoto">移除</view>
+      </view>
+    </block>
+
+    <view wx:else class="photo-empty" bindtap="onChoosePhoto">
+      <view class="photo-plus">＋</view>
+      <view class="photo-hint">拍照或从相册选择</view>
+      <view class="tiny">会自动读出姓名、金额和事由</view>
+    </view>
+
+    <view wx:if="{{recognizing}}" class="recognize-tip">正在识别图片，请稍候…</view>
+    <view wx:elif="{{recognizeMsg}}" class="recognize-tip">{{recognizeMsg}}</view>
+    <view wx:if="{{photoPath && !recognizing}}" class="tiny recognize-actions">
+      识别不对？可点上方「重新识别」，或直接手动填写
+    </view>
+  </view>
+
+  <!-- 明细 -->
+  <view class="card">
+    <view class="field">
+      <view class="field-label">对方姓名</view>
+      <input
+        class="field-input"
+        value="{{contactName}}"
+        placeholder="比如 张三"
+        placeholder-class="field-placeholder"
+        bindinput="onNameInput"
+      />
+    </view>
+
+    <view class="field">
+      <view class="field-label">金额（元）</view>
+      <input
+        class="field-input"
+        type="digit"
+        value="{{amount}}"
+        placeholder="0"
+        placeholder-class="field-placeholder"
+        bindinput="onAmountInput"
+      />
+    </view>
+
+    <view class="field">
+      <view class="field-label">事由</view>
+      <view class="chips">
+        <view
+          wx:for="{{eventTypes}}"
+          wx:key="*this"
+          class="chip {{eventType === item ? 'chip-on' : ''}}"
+          data-value="{{item}}"
+          bindtap="onEventTap"
+        >{{item}}</view>
+      </view>
+    </view>
+
+    <view class="field">
+      <view class="field-label">日期</view>
+      <picker mode="date" value="{{happenedOn}}" bindchange="onDateChange">
+        <view class="field-input picker">{{happenedOn}}</view>
+      </picker>
+    </view>
+
+    <view class="field">
+      <view class="field-label">备注</view>
+      <textarea
+        class="field-textarea"
+        value="{{note}}"
+        placeholder="礼品、地点、随行的人…"
+        placeholder-class="field-placeholder"
+        maxlength="200"
+        bindinput="onNoteInput"
+      />
+    </view>
+
+    <view class="field switch-field">
+      <view class="switch-text">
+        <view class="field-label">{{direction === 'in' ? '这份人情已经还了' : '对方已经回过礼'}}</view>
+        <view class="tiny">打开后这笔会直接标记为已结</view>
+      </view>
+      <switch checked="{{isSettled}}" color="#3F7D53" bindchange="onSettledChange" />
+    </view>
+  </view>
+
+  <button
+    class="btn-primary submit"
+    bindtap="onSubmit"
+    loading="{{submitting}}"
+    disabled="{{submitting}}"
+  >{{editingId ? '保存修改' : '保存这一笔'}}</button>
+</view>

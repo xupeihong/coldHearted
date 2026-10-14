@@ -1,0 +1,65 @@
+<view class="page">
+  <!-- 总览 -->
+  <view class="overview">
+    <view class="overview-row">
+      <view class="overview-item">
+        <view class="overview-label">我欠出去的人情</view>
+        <view class="overview-value">¥{{summary.oweText}}</view>
+      </view>
+      <view class="overview-split"></view>
+      <view class="overview-item">
+        <view class="overview-label">别人欠我的人情</view>
+        <view class="overview-value">¥{{summary.backText}}</view>
+      </view>
+    </view>
+    <view class="overview-foot">
+      {{summary.peopleCount}} 位往来对象 · {{summary.recordCount}} 笔记录
+    </view>
+  </view>
+
+  <view wx:if="{{errorMsg}}" class="error-card">
+    <view class="error-text">{{errorMsg}}</view>
+    <view class="error-btn" bindtap="load">重新加载</view>
+  </view>
+
+  <view wx:elif="{{loading}}" class="empty">正在汇总…</view>
+
+  <block wx:elif="{{people.length}}">
+    <view wx:for="{{people}}" wx:for-index="pIndex" wx:for-item="person" wx:key="name" class="person">
+      <view class="person-head" data-index="{{pIndex}}" bindtap="onTogglePerson">
+        <view class="person-avatar">{{person.initial}}</view>
+        <view class="person-main">
+          <view class="person-name">
+            <text>{{person.name}}</text>
+            <text wx:if="{{person.relation}}" class="person-relation">{{person.relation}}</text>
+          </view>
+          <view class="person-meta">
+            往来 {{person.count}} 次 · 收 ¥{{person.inTotalText}} / 送 ¥{{person.outTotalText}}
+          </view>
+        </view>
+        <view class="person-net {{person.net > 0 ? 'net-owe' : (person.net < 0 ? 'net-back' : 'net-flat')}}">
+          <view class="person-net-label">{{person.netLabel}}</view>
+          <view wx:if="{{person.net !== 0}}" class="person-net-amount">¥{{person.netAbsText}}</view>
+        </view>
+        <view class="person-arrow">{{person.open ? '⌃' : '⌄'}}</view>
+      </view>
+
+      <view wx:if="{{person.open}}" class="person-records">
+        <view wx:if="{{!person.records.length}}" class="tiny person-empty">暂无明细</view>
+        <record-card
+          wx:for="{{person.records}}"
+          wx:for-item="rec"
+          wx:key="id"
+          item="{{rec}}"
+          bind:itemtap="onRecordTap"
+          bind:settle="onSettle"
+        />
+      </view>
+    </view>
+  </block>
+
+  <view wx:else class="empty">
+    <view class="empty-title">还没有往来记录</view>
+    <view class="tiny">记下第一笔之后，这里会自动按人汇总</view>
+  </view>
+</view>

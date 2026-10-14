@@ -1,0 +1,61 @@
+<view class="page">
+  <view wx:if="{{errorMsg}}" class="error-card">
+    <view class="error-text">{{errorMsg}}</view>
+    <view class="error-btn" bindtap="load">重新加载</view>
+  </view>
+
+  <view wx:elif="{{loading}}" class="empty">正在加载…</view>
+
+  <block wx:elif="{{record}}">
+    <view class="hero hero-{{record.direction}} {{record.isSettled ? 'hero-done' : ''}}">
+      <view class="hero-name">{{record.name}}</view>
+      <view class="hero-amount">{{record.direction === 'in' ? '+' : '-'}}{{record.amountText}}</view>
+      <view class="hero-tags">
+        <text class="hero-tag">{{record.directionText}}</text>
+        <text class="hero-tag">{{record.statusText}}</text>
+      </view>
+      <view class="hero-hint">{{record.directionHint}}</view>
+    </view>
+
+    <view class="card">
+      <view class="row">
+        <text class="row-label">事由</text>
+        <text class="row-value">{{record.eventType}}</text>
+      </view>
+      <view class="row">
+        <text class="row-label">日期</text>
+        <text class="row-value">{{record.dateText}}</text>
+      </view>
+      <view wx:if="{{record.note}}" class="row">
+        <text class="row-label">备注</text>
+        <text class="row-value">{{record.note}}</text>
+      </view>
+      <view wx:if="{{record.settledText}}" class="row">
+        <text class="row-label">结清于</text>
+        <text class="row-value">{{record.settledText}}</text>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="section-title">凭证照片</view>
+      <image
+        wx:if="{{photoUrl}}"
+        class="proof"
+        src="{{photoUrl}}"
+        mode="widthFix"
+        bindtap="onPreviewPhoto"
+      />
+      <view wx:else class="proof-empty">这笔没有上传凭证</view>
+    </view>
+
+    <view class="actions">
+      <button
+        class="btn-primary"
+        bindtap="onToggleSettled"
+        disabled="{{busy}}"
+      >{{record.isSettled ? '取消划掉' : '划掉这笔'}}</button>
+      <button class="btn-ghost" bindtap="onEdit">修改</button>
+      <button class="btn-danger" bindtap="onDelete">删除</button>
+    </view>
+  </block>
+</view>

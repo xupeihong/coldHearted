@@ -1,0 +1,20 @@
+/**
+ * 记一笔页专有样式
+ *
+ * 收送切换、凭证照片、识别提示、事由选项、底部按钮这些组件
+ * 与批量录入页共用，已提升到 app.wxss，此处不再重复定义。
+ */
+
+/* ------------------------------ 已结清开关 ------------------------------ */
+
+.switch-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.switch-text {
+  flex: 1;
+  min-width: 0;
+  margin-right: 20rpx;
+}

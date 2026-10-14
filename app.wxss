@@ -1,0 +1,389 @@
+page {
+  background: #F5F1EA;
+  color: #2E2A26;
+  font-size: 28rpx;
+  line-height: 1.55;
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", Helvetica, sans-serif;
+}
+
+view, text, input, textarea, button, image {
+  box-sizing: border-box;
+}
+
+/* ------------------------------ 通用容器 ------------------------------ */
+
+.page {
+  min-height: 100vh;
+  padding: 24rpx 28rpx 160rpx;
+}
+
+.card {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 28rpx;
+  box-shadow: 0 4rpx 20rpx rgba(122, 96, 66, 0.07);
+}
+
+.card + .card {
+  margin-top: 24rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #2E2A26;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.muted {
+  color: #9A9086;
+}
+
+.tiny {
+  font-size: 24rpx;
+}
+
+/* ------------------------------ 主色按钮 ------------------------------ */
+
+.btn-primary,
+.btn-ghost,
+.btn-danger {
+  border-radius: 999rpx;
+  font-size: 30rpx;
+  line-height: 1;
+  padding: 26rpx 0;
+  text-align: center;
+  border: none;
+}
+
+.btn-primary {
+  background: #B23A3A;
+  color: #FFFFFF;
+}
+
+.btn-primary[disabled] {
+  background: #DCC9C0;
+  color: #FFFFFF;
+}
+
+.btn-ghost {
+  background: #FFFFFF;
+  color: #B23A3A;
+  border: 2rpx solid #E3D6CC;
+}
+
+.btn-danger {
+  background: #FFFFFF;
+  color: #C0392B;
+  border: 2rpx solid #EFD7D2;
+}
+
+.btn-primary::after,
+.btn-ghost::after,
+.btn-danger::after {
+  border: none;
+}
+
+/* ------------------------------ 表单 ------------------------------ */
+
+.field {
+  padding: 22rpx 0;
+  border-bottom: 2rpx solid #F1EAE1;
+}
+
+.field:last-child {
+  border-bottom: none;
+}
+
+.field-label {
+  font-size: 26rpx;
+  color: #8C8279;
+  margin-bottom: 10rpx;
+}
+
+.field-input {
+  width: 100%;
+  font-size: 32rpx;
+  color: #2E2A26;
+  height: 56rpx;
+}
+
+.field-textarea {
+  width: 100%;
+  min-height: 120rpx;
+  font-size: 30rpx;
+  color: #2E2A26;
+}
+
+.field-placeholder {
+  color: #C4BAAE;
+}
+
+/* ------------------------------ 标签 ------------------------------ */
+
+.tag {
+  display: inline-block;
+  font-size: 22rpx;
+  padding: 4rpx 16rpx;
+  border-radius: 999rpx;
+  margin-right: 12rpx;
+}
+
+.tag-in {
+  background: #FBEDEB;
+  color: #B23A3A;
+}
+
+.tag-out {
+  background: #EAF3EC;
+  color: #3F7D53;
+}
+
+.tag-settled {
+  background: #EFEBE4;
+  color: #8C8279;
+}
+
+.tag-pending {
+  background: #FDF3E2;
+  color: #B4802A;
+}
+
+/* ------------------------------ 空状态 ------------------------------ */
+
+.empty {
+  padding: 140rpx 40rpx;
+  text-align: center;
+  color: #A69C90;
+}
+
+.empty-title {
+  font-size: 30rpx;
+  color: #7D7369;
+  margin-bottom: 12rpx;
+}
+
+/* ------------------------------ 浮动按钮 ------------------------------ */
+
+.fab {
+  position: fixed;
+  right: 40rpx;
+  bottom: 60rpx;
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 50%;
+  background: #B23A3A;
+  color: #FFFFFF;
+  font-size: 56rpx;
+  line-height: 108rpx;
+  text-align: center;
+  box-shadow: 0 10rpx 28rpx rgba(178, 58, 58, 0.3);
+  z-index: 20;
+}
+
+/* ------------------------------ 表单组件（记一笔 / 批量录入共用） ------------------------------ */
+
+/* 收 / 送 切换 */
+
+.seg {
+  display: flex;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 10rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 4rpx 18rpx rgba(122, 96, 66, 0.06);
+}
+
+.seg-item {
+  flex: 1;
+  text-align: center;
+  padding: 18rpx 0;
+  border-radius: 14rpx;
+}
+
+.seg-main {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #8C8279;
+}
+
+.seg-sub {
+  font-size: 22rpx;
+  color: #B4AAA0;
+  margin-top: 4rpx;
+}
+
+.seg-on .seg-main {
+  color: #B23A3A;
+}
+
+.seg-on {
+  background: #FBEDEB;
+}
+
+.seg-on .seg-sub {
+  color: #C77B77;
+}
+
+.seg-on-out .seg-main {
+  color: #3F7D53;
+}
+
+.seg-on-out {
+  background: #EAF3EC;
+}
+
+.seg-on-out .seg-sub {
+  color: #6C9C7C;
+}
+
+/* 区块内右上角的次要操作 */
+
+.redo {
+  font-size: 25rpx;
+  font-weight: 400;
+  color: #B23A3A;
+}
+
+/* 凭证照片 */
+
+.photo {
+  width: 100%;
+  height: 340rpx;
+  border-radius: 16rpx;
+  background: #F1EAE1;
+}
+
+.photo-actions {
+  display: flex;
+  margin-top: 20rpx;
+}
+
+.photo-btn {
+  flex: 1;
+  text-align: center;
+  font-size: 26rpx;
+  color: #8C8279;
+  padding: 16rpx 0;
+  border-radius: 999rpx;
+  background: #F7F3ED;
+}
+
+.photo-btn + .photo-btn {
+  margin-left: 18rpx;
+}
+
+.photo-empty {
+  padding: 56rpx 0;
+  text-align: center;
+  border: 2rpx dashed #DDD2C6;
+  border-radius: 16rpx;
+  background: #FDFBF8;
+}
+
+.photo-plus {
+  font-size: 56rpx;
+  color: #C4BAAE;
+  line-height: 1;
+}
+
+.photo-hint {
+  font-size: 28rpx;
+  color: #7D7369;
+  margin: 16rpx 0 8rpx;
+}
+
+/* 识别状态提示 */
+
+.recognize-tip {
+  margin-top: 20rpx;
+  font-size: 25rpx;
+  color: #B4802A;
+  background: #FDF3E2;
+  border-radius: 12rpx;
+  padding: 16rpx 20rpx;
+}
+
+.recognize-actions {
+  margin-top: 14rpx;
+  text-align: center;
+}
+
+/* 事由选项 */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 6rpx;
+}
+
+.chip {
+  font-size: 25rpx;
+  color: #8C8279;
+  background: #F7F3ED;
+  border-radius: 999rpx;
+  padding: 12rpx 28rpx;
+  margin: 12rpx 16rpx 0 0;
+  border: 2rpx solid transparent;
+}
+
+.chip-on {
+  color: #B23A3A;
+  background: #FDF4F2;
+  border-color: #E8CFC8;
+  font-weight: 600;
+}
+
+.picker {
+  color: #2E2A26;
+  line-height: 56rpx;
+}
+
+/* 底部主按钮 */
+
+.submit {
+  margin-top: 40rpx;
+}
+
+/* ------------------------------ 弹层 ------------------------------ */
+
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(30, 24, 20, 0.6);
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+}
+
+.sheet {
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 28rpx 28rpx 0 0;
+  padding: 32rpx 32rpx 48rpx;
+  max-height: 86vh;
+  overflow-y: auto;
+}
+
+.sheet-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 28rpx;
+}
+
+.sheet-item {
+  padding: 28rpx 8rpx;
+  font-size: 30rpx;
+  border-bottom: 2rpx solid #F1EAE1;
+}
+
+.sheet-item:last-child {
+  border-bottom: none;
+}

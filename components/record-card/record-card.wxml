@@ -1,0 +1,24 @@
+<view class="rc {{item.isSettled ? 'rc-done' : ''}}">
+  <view
+    class="rc-check {{item.isSettled ? 'rc-check-on' : ''}}"
+    catchtap="onSettle"
+  >{{item.isSettled ? '✓' : ''}}</view>
+
+  <view class="rc-body" bindtap="onTap">
+    <view class="rc-head">
+      <text class="rc-name">{{item.name}}</text>
+      <text class="rc-tag {{item.direction === 'in' ? 'rc-tag-in' : 'rc-tag-out'}}">{{item.directionText}}</text>
+      <text class="rc-tag {{item.isSettled ? 'rc-tag-done' : 'rc-tag-wait'}}">{{item.statusText}}</text>
+    </view>
+    <view class="rc-meta">
+      <text wx:if="{{item.eventType}}">{{item.eventType}} · </text>
+      <text>{{item.dateText}}</text>
+      <text wx:if="{{item.hasPhoto}}"> · 有凭证</text>
+      <text wx:if="{{item.note}}"> · {{item.note}}</text>
+    </view>
+  </view>
+
+  <view class="rc-amount {{item.direction === 'in' ? 'rc-in' : 'rc-out'}}" bindtap="onTap">
+    <text>{{item.direction === 'in' ? '+' : '-'}}{{item.amountText}}</text>
+  </view>
+</view>

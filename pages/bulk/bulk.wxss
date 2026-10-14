@@ -1,0 +1,113 @@
+/**
+ * 批量录入页专有样式
+ *
+ * 收送切换、凭证照片、识别提示、事由选项、底部按钮都来自 app.wxss 的共用组件，
+ * 这里只放「候选清单」这一块列表布局。
+ */
+
+.hint {
+  font-size: 24rpx;
+  color: #9A9086;
+  margin-bottom: 20rpx;
+}
+
+/* ------------------------------ 提醒条 ------------------------------ */
+
+.warn-card {
+  background: #FDF3E2;
+  border-radius: 20rpx;
+  padding: 24rpx 28rpx;
+  font-size: 25rpx;
+  color: #B4802A;
+  line-height: 1.7;
+  margin-bottom: 24rpx;
+}
+
+/* ------------------------------ 候选清单 ------------------------------ */
+
+.roster-head {
+  display: flex;
+  align-items: center;
+  padding: 0 0 14rpx;
+  border-bottom: 2rpx solid #F2ECE5;
+  font-size: 23rpx;
+  color: #9A9086;
+}
+
+.roster-row {
+  display: flex;
+  align-items: center;
+  padding: 18rpx 0;
+  border-bottom: 2rpx solid #F7F3ED;
+}
+
+.roster-check {
+  flex: none;
+  width: 74rpx;
+}
+
+.tick {
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 50%;
+  border: 3rpx solid #D8CFC6;
+  box-sizing: border-box;
+  color: transparent;
+  font-size: 26rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+
+.tick-on {
+  border-color: #B23A3A;
+  background: #B23A3A;
+  color: #FFFFFF;
+}
+
+.roster-name {
+  flex: 1;
+  min-width: 0;
+}
+
+.roster-amount {
+  flex: none;
+  width: 190rpx;
+  text-align: right;
+}
+
+.roster-input {
+  font-size: 29rpx;
+  color: #2E2A26;
+  padding: 6rpx 0;
+  width: 100%;
+}
+
+.roster-input-sub {
+  font-size: 24rpx;
+  color: #8C8279;
+}
+
+.roster-input-amount {
+  text-align: right;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+/* 金额没读出来的行标红，提示对照原图补填 */
+.roster-input-warn {
+  color: #B23A3A;
+}
+
+/* 小程序不支持 ::placeholder 伪元素，占位符颜色要单独给一个 class */
+.ph-warn {
+  color: #D9A9A9;
+}
+
+.roster-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 22rpx;
+  font-size: 26rpx;
+  color: #6E655C;
+}

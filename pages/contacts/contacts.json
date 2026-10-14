@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "往来总览",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "record-card": "/components/record-card/record-card"
+  }
+}

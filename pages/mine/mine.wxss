@@ -1,0 +1,115 @@
+.profile {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(140deg, #B23A3A 0%, #98302F 100%);
+  border-radius: 24rpx;
+  padding: 40rpx 34rpx;
+  color: #FFFFFF;
+  box-shadow: 0 10rpx 28rpx rgba(178, 58, 58, 0.22);
+}
+
+.profile-avatar {
+  flex: none;
+  width: 104rpx;
+  height: 104rpx;
+  line-height: 104rpx;
+  border-radius: 30rpx;
+  background: rgba(255, 255, 255, 0.18);
+  color: #FFF6E9;
+  font-size: 40rpx;
+  text-align: center;
+  margin-right: 26rpx;
+}
+
+.profile-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-name {
+  font-size: 34rpx;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile-sub {
+  font-size: 23rpx;
+  color: rgba(255, 255, 255, 0.66);
+  margin-top: 10rpx;
+}
+
+/* ------------------------------ 概览 ------------------------------ */
+
+.grid {
+  display: flex;
+}
+
+.grid-item {
+  flex: 1;
+  text-align: center;
+}
+
+.grid-value {
+  font-size: 46rpx;
+  font-weight: 600;
+  color: #B23A3A;
+}
+
+.grid-label {
+  font-size: 24rpx;
+  color: #9A9086;
+  margin-top: 8rpx;
+}
+
+/* ------------------------------ 提醒设置 ------------------------------ */
+
+.option-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 6rpx;
+}
+
+.option {
+  font-size: 25rpx;
+  color: #8C8279;
+  background: #F7F3EE;
+  border: 2rpx solid transparent;
+  border-radius: 999rpx;
+  padding: 12rpx 30rpx;
+  margin: 14rpx 16rpx 0 0;
+}
+
+.option-on {
+  color: #B23A3A;
+  background: #FDF4F2;
+  border-color: #E8CFC8;
+  font-weight: 600;
+}
+
+.option-hint {
+  font-size: 23rpx;
+  color: #9A9086;
+  margin-top: 16rpx;
+}
+
+/* 模型名较长，单独收一点字号与内边距 */
+.option-tight {
+  font-size: 23rpx;
+  padding: 12rpx 22rpx;
+  margin: 14rpx 12rpx 0 0;
+}
+
+/* ------------------------------ 说明 ------------------------------ */
+
+.desc {
+  font-size: 26rpx;
+  color: #6E655C;
+  line-height: 1.7;
+  padding: 12rpx 0;
+}
+
+.logout {
+  margin-top: 40rpx;
+}

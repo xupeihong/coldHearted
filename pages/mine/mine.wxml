@@ -1,0 +1,66 @@
+<view class="page">
+  <view class="profile">
+    <view class="profile-avatar">人</view>
+    <view class="profile-main">
+      <view class="profile-name">{{accountLabel}}</view>
+      <view class="profile-sub">{{accountSub}}</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">账本概览</view>
+    <view class="grid">
+      <view class="grid-item">
+        <view class="grid-value">{{summary.recordCount}}</view>
+        <view class="grid-label">总记录</view>
+      </view>
+      <view class="grid-item">
+        <view class="grid-value">{{summary.peopleCount}}</view>
+        <view class="grid-label">往来对象</view>
+      </view>
+      <view class="grid-item">
+        <view class="grid-value">{{summary.pendingCount}}</view>
+        <view class="grid-label">未结清</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">提醒设置</view>
+    <view class="desc">收礼之后一直没还，超过设定天数就会在账本页顶部提示。设置只存本机，不上传。</view>
+    <view class="option-row">
+      <view
+        wx:for="{{remindOptions}}"
+        wx:key="value"
+        class="option {{remindThreshold === item.value ? 'option-on' : ''}}"
+        data-value="{{item.value}}"
+        bindtap="onThresholdTap"
+      >{{item.label}}</view>
+    </view>
+    <view class="option-hint">{{remindHint}}</view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">识别模型</view>
+    <view class="desc">拍凭证时用来读图的模型。手写礼金簿对清晰度要求高，视觉专用模型通常读得更准。切换后重新拍一张即可对比效果，不影响已有账目。</view>
+    <view class="option-row">
+      <view
+        wx:for="{{visionOptions}}"
+        wx:key="id"
+        class="option option-tight {{visionModel === item.id ? 'option-on' : ''}}"
+        data-id="{{item.id}}"
+        bindtap="onVisionTap"
+      >{{item.label}}</view>
+    </view>
+    <view class="option-hint">{{visionHint}}</view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">怎么用</view>
+    <view class="desc">记一笔时拍下礼金簿或红包，会自动读出姓名、金额和事由，核对后即可保存。</view>
+    <view class="desc">账本列表左侧的圆圈就是「划掉」：收礼还没还的，还过之后点一下圆圈即为了结。</view>
+    <view class="desc">「往来」页按人汇总人情差，谁欠谁一眼看清。</view>
+  </view>
+
+  <button class="btn-ghost logout" bindtap="onSignOut">退出登录</button>
+</view>

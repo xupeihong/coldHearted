@@ -1,0 +1,10 @@
+# 依赖（小程序运行不需要 node_modules，SDK 已内置在 libs/）
+node_modules/
+
+# 微信开发者工具本地配置（含各人本机设置，与工程无关）
+project.private.config.json
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+*.log

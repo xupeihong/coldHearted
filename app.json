@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/add/add",
+    "pages/bulk/bulk",
+    "pages/detail/detail",
+    "pages/contacts/contacts",
+    "pages/mine/mine",
+    "pages/login/login"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#F5F1EA",
+    "navigationBarBackgroundColor": "#B23A3A",
+    "navigationBarTitleText": "人情账簿",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#9A9086",
+    "selectedColor": "#B23A3A",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "账本",
+        "iconPath": "assets/tabbar/ledger.png",
+        "selectedIconPath": "assets/tabbar/ledger-on.png"
+      },
+      {
+        "pagePath": "pages/contacts/contacts",
+        "text": "往来",
+        "iconPath": "assets/tabbar/exchange.png",
+        "selectedIconPath": "assets/tabbar/exchange-on.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "assets/tabbar/user.png",
+        "selectedIconPath": "assets/tabbar/user-on.png"
+      }
+    ]
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,235 @@
+.stat-card {
+  background: linear-gradient(140deg, #B23A3A 0%, #98302F 100%);
+  border-radius: 24rpx;
+  padding: 34rpx 32rpx 26rpx;
+  color: #FFFFFF;
+  box-shadow: 0 10rpx 28rpx rgba(178, 58, 58, 0.22);
+}
+
+.stat-main {
+  display: flex;
+  align-items: stretch;
+}
+
+.stat-item {
+  flex: 1;
+  min-width: 0;
+}
+
+.stat-split {
+  width: 2rpx;
+  background: rgba(255, 255, 255, 0.22);
+  margin: 0 30rpx;
+}
+
+.stat-label {
+  font-size: 25rpx;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.stat-value {
+  font-size: 46rpx;
+  font-weight: 600;
+  margin: 8rpx 0 6rpx;
+  letter-spacing: 1rpx;
+}
+
+.stat-red {
+  color: #FFE1C6;
+}
+
+.stat-green {
+  color: #CFEBD8;
+}
+
+.stat-sub {
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.stat-foot {
+  margin-top: 26rpx;
+  padding-top: 20rpx;
+  border-top: 2rpx solid rgba(255, 255, 255, 0.16);
+  font-size: 23rpx;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.stat-dot {
+  margin: 0 14rpx;
+}
+
+/* ------------------------------ 筛选 ------------------------------ */
+
+.filters {
+  margin: 26rpx 0 22rpx;
+}
+
+.chip-group {
+  display: flex;
+}
+
+.chip-group-right {
+  margin-top: 14rpx;
+}
+
+.chip {
+  font-size: 25rpx;
+  color: #8C8279;
+  background: #FFFFFF;
+  border-radius: 999rpx;
+  padding: 12rpx 30rpx;
+  margin-right: 16rpx;
+  border: 2rpx solid transparent;
+}
+
+.chip-on {
+  color: #B23A3A;
+  border-color: #E8CFC8;
+  background: #FDF4F2;
+  font-weight: 600;
+}
+
+/* ------------------------------ 待还提醒 ------------------------------ */
+
+.remind-card {
+  margin-top: 24rpx;
+  background: #FFFFFF;
+  border: 2rpx solid #F0D9D4;
+  border-radius: 24rpx;
+  padding: 28rpx 30rpx 20rpx;
+}
+
+.remind-head {
+  padding-bottom: 18rpx;
+  border-bottom: 2rpx solid #F6EDE7;
+}
+
+.remind-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #B23A3A;
+  line-height: 1.5;
+}
+
+.remind-sub {
+  font-size: 23rpx;
+  color: #9A9086;
+  margin-top: 8rpx;
+}
+
+.remind-row {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.remind-row-line {
+  border-top: 2rpx solid #F6EDE7;
+}
+
+.remind-row-main {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.remind-name {
+  font-size: 27rpx;
+  font-weight: 600;
+  color: #2E2A26;
+  margin-right: 14rpx;
+}
+
+.remind-meta {
+  font-size: 23rpx;
+  color: #9A9086;
+}
+
+.remind-days {
+  flex: none;
+  margin-left: 16rpx;
+  font-size: 23rpx;
+  color: #B23A3A;
+  background: #FDF4F2;
+  border-radius: 999rpx;
+  padding: 8rpx 18rpx;
+}
+
+.remind-more {
+  text-align: center;
+  font-size: 25rpx;
+  color: #B23A3A;
+  padding: 20rpx 0 8rpx;
+}
+
+/* ------------------------------ 异常 ------------------------------ */
+
+.error-card {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 60rpx 40rpx;
+  text-align: center;
+}
+
+.error-text {
+  color: #B23A3A;
+  font-size: 26rpx;
+  margin-bottom: 26rpx;
+}
+
+.error-btn {
+  display: inline-block;
+  font-size: 27rpx;
+  color: #B23A3A;
+  border: 2rpx solid #E3D6CC;
+  border-radius: 999rpx;
+  padding: 14rpx 44rpx;
+}
+
+/* ------------------------------ 分页状态 ------------------------------ */
+
+.list-foot {
+  text-align: center;
+  font-size: 24rpx;
+  color: #A89F96;
+  padding: 30rpx 0 10rpx;
+}
+
+/* ------------------------------ 悬浮入口 ------------------------------ */
+
+/* 两个悬浮钮让底部多占一点，列表末尾要留出空间 */
+.page {
+  padding-bottom: 300rpx;
+}
+
+/* 批量录入：浅色次级按钮，落在「记一笔」正上方 */
+.fab-mini {
+  position: fixed;
+  right: 52rpx;
+  bottom: 196rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2rpx solid #E8CFC8;
+  box-shadow: 0 8rpx 20rpx rgba(178, 58, 58, 0.16);
+  color: #B23A3A;
+  text-align: center;
+  z-index: 20;
+}
+
+.fab-mini-icon {
+  font-size: 40rpx;
+  font-weight: 600;
+  line-height: 58rpx;
+  height: 58rpx;
+}
+
+.fab-mini-label {
+  font-size: 20rpx;
+  line-height: 20rpx;
+  color: #A88F88;
+}
+

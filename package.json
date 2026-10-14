@@ -1,0 +1,9 @@
+{
+  "name": "renqing-book",
+  "version": "1.0.0",
+  "private": true, 
+  "description": "人情账簿微信小程序",
+  "dependencies": {
+    "@tencent-ai/workbuddy-cloud-sdk": "dev"
+  }
+}

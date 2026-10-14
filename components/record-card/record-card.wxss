@@ -1,0 +1,118 @@
+.rc {
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 26rpx 24rpx;
+  box-shadow: 0 4rpx 18rpx rgba(122, 96, 66, 0.06);
+}
+
+.rc + .rc {
+  margin-top: 18rpx;
+}
+
+.rc-done {
+  background: #FAF8F5;
+}
+
+/* 划掉复选框 —— 高频操作，放在最顺手的位置 */
+.rc-check {
+  flex: none;
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 22rpx;
+  border-radius: 50%;
+  border: 3rpx solid #DCD2C6;
+  color: #FFFFFF;
+  font-size: 28rpx;
+  line-height: 42rpx;
+  text-align: center;
+}
+
+.rc-check-on {
+  background: #3F7D53;
+  border-color: #3F7D53;
+}
+
+.rc-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.rc-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.rc-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #2E2A26;
+  margin-right: 14rpx;
+  max-width: 300rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rc-done .rc-name {
+  color: #9A9086;
+  text-decoration: line-through;
+}
+
+.rc-tag {
+  font-size: 21rpx;
+  padding: 3rpx 14rpx;
+  border-radius: 999rpx;
+  margin-right: 10rpx;
+  line-height: 1.5;
+}
+
+.rc-tag-in {
+  background: #FBEDEB;
+  color: #B23A3A;
+}
+
+.rc-tag-out {
+  background: #EAF3EC;
+  color: #3F7D53;
+}
+
+.rc-tag-wait {
+  background: #FDF3E2;
+  color: #B4802A;
+}
+
+.rc-tag-done {
+  background: #EFEBE4;
+  color: #8C8279;
+}
+
+.rc-meta {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #9A9086;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rc-amount {
+  flex: none;
+  margin-left: 20rpx;
+  font-size: 34rpx;
+  font-weight: 600;
+}
+
+.rc-in {
+  color: #B23A3A;
+}
+
+.rc-out {
+  color: #3F7D53;
+}
+
+.rc-done .rc-amount {
+  opacity: 0.45;
+}
